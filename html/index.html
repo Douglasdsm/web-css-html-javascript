@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--http-server -c-1 .-->
+<html lang="en">
+<head>
+    <meta charset= "UTF-8">
+    <meta name = "viewport" content="width=device-width,initial-scale=1.0">
+    <meta name http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercicios HTML</title>
+    <style>
+        #conteudo {
+            padding: 30px 0px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>exercicio HTML</h1>
+    </header>
+    <nav>
+        <a href="exercicios/teste.html">00 - Teste </a>|
+        <a href="exercicios/texto1.html"> 01 - Texto</a>|
+        <a href="exercicios/texto2.html"> 02 - Texto</a> |
+        <a href="exercicios/lista.html"> 03 - Lista</a>|
+        <a href="exercicios/listaAninhada.html"> 04 - Exercicio</a>|
+        <a href="exercicios/links.html"> 05 - Links</a> |
+        <a href="exercicios/tabelas.html">06 - Tabelas</a> |
+        <a href="exercicios/form/form.html"> 07 - Formularios</a>|
+        <a href="exercicios/imagens.html">08 - Imagens</a>|
+        <a href="exercicios/video.html">09 - Video</a>|
+        <a href="exercicios/tags.html">10 - tags</a>
+
+    </nav>
+    <section id = "conteudo"></section>
+    <footer>
+        Curso de Web Moderno
+    </footer>
+    <script>
+        document.querySelectorAll('a').forEach(link=>{
+            link.onclick = function(e){
+                const conteudo = document.getElementById('conteudo')
+                e.preventDefault()
+                fetch(link.href)
+                .then(resp => resp.text())
+                .then(html=>conteudo.innerHTML = html)
+            }
+        })
+    </script>
+</body>
+</html>
+<style>
+    nav a{
+        background-color: yellow;
+    }
+</style>
